@@ -2,14 +2,39 @@
 \label{sec:falhas_comp}
 \input{falhas_comp.tex}
 
-Falhas em programas de computador são inevitáveis, porém as consequências dessas falhas pode ser contornadas ou, ao menos minimizadas, se o design do software tiver previsto as falhas que poderiam ocorrer. Confiabilidade e disponibilidade são características altamente desejadas em sistemas de computação, pois as pessoas dependem a cada dia mais de sistemas automatizados e informatizados. É notável o crescimento em confiabilidade na área de hardware, por exemplo, onde vimos uma grande cultura de tolerância a falhas se formar dos inseguros \emph{mainframes} a vávula, cujos proprietários sofriam, rotineiramente, com falhas de diversas origens, até os robustos \emph{laptops} que temos hoje para computação pessoal.
+Confiabilidade e disponibilidade são características altamente desejadas em sistemas de computação, pois a humanidade depende cada vez mais de sistemas automatizados e informatizados para a realização de suas tarefas diárias. Dentre estes estão sistemas críticos, onde uma falha pode causar prejuízo financeiro e/ou perda de vidas.
 
-Na área de software, por outro lado, os processos de desenvolvimento e os produtos estão cada vez mais complexos e apresentando cada vez mais bugs. 
+Os computadores (hardware + software) são, provavelmente, os sistemas mais complexos já inventados pelo homem. A complexidade das peças de hardware segue em constante crescimento, o que gera a possibilidade de inserção de defeitos em várias etapas do desenvolvimento, desde o nível elétrico até, por exemplo, algoritmos de predição implementados diretamente em hardware nos processadores. A área de software é ainda mais complexa e, por isso, ainda mais propensa a falhas. Até mesmo o ônibus espacial (\emph{Space Shuttle}) da NASA~\cite{BonacheaOnline}, desenvolvido com as mais cuidadosas tecnologias apresentou \emph{bugs} em seu sistema, podendo resultar em uma catástrofe. Podemos extrapolar um pouco e afirmar que, falhas são inevitáveis em computadores. Contudo, as consequências dessas falhas pode ser contornadas ou, ao menos minimizadas, se o design do software tiver previsto as falhas que poderiam ocorrer.
+
+É notável o crescimento em confiabilidade na área de hardware, por exemplo, onde vimos uma grande cultura de tolerância a falhas se formar dos inseguros \emph{mainframes} a vávula, cujos proprietários sofriam, rotineiramente, com falhas de diversas origens, até os robustos \emph{laptops} que temos hoje para computação pessoal. Na área de software, por outro lado, os processos de desenvolvimento e os produtos estão cada vez mais complexos e apresentando cada vez mais \emph{bugs}. Uma vez que esses \emph{bugs} são quase inevitáveis, mecanismos de tolerância a falhas se tornam obrigatórios em sistemas onde a confiabilidade e disponibilidade é imprescindível.
 
 \subsection{Falhas, erros e defeitos} % (fold)
 \label{sub:falhas_erros_e_defeitos}
 
+Com frequência usamos as palavras ``falha'', ``erro'' e ``defeito'' para designar problemas que fazem um módulo de software ou hardware funcionar de forma indevida. Contudo, na área de tolerância a falhas faz-se uma distinção destes três termos. Diversos autores da área possuem definições sutilmente diferentes para esses termos, e as definições que usaremos aqui são as mesmas econtradas em~\cite{koren2007fault}.
+
+Uma \textbf{falha}, do inglês \emph{fault} (também traduzido como \textbf{falta}), ou \textbf{defeito} \emph{failure} pode ser algum problema diretamente no hardware ou algum \emph{bug} na programação do software. Já o \textbf{erro} é uma manifestação de uma falha.
+
+Por exemplo, considere um circuito que faz a soma de dois números binários, porém com um dos bits de saída preso em $0$ (zero), independente da soma dos operandos. Este defeito ou falha no hardware só gerará um erro quando a soma dos operandos resultar em um valor em que aquele bit específico da saída não seria igual a zero. Outro exemplo, no campo da programação, poderia ser uma linha de código que pode eventualmente acessar uma área de memória inválida. Esta falha de programação só irá gerar um erro quando, em tempo de execução, o programa acessar alguma área de memória inválida.
+
+Falhas e erros podem se propagar em um sistema, por exemplo, o somador defeituoso pode passar um resultado errado para outros componentes que usarão sua saída, fazendo, atém mesmo com que erros sejam capturados em módulos não defeituosos. Programadores e projetistas devem prever \textbf{zonas de contenção} em seus sistemas para impedir que erros e defeitos se propaguem para outras partes do sistema. Por exemplo, um \emph{chip} queimado pode desligar outros componentes de hardware ligados a ele, a menos que a energia seja fornecida a cada componente de forma individual, colocando um \emph{chip} ``estepe'' que é ativado em caso de falha do \emph{chip} ``titular''. Ainda, vários chips podem operar simultaneamente sobre o mesmo conjunto de dados e suas saídas são passadas a um componente que vota nas respostas.
+
+Em~\ref{sub:redundancia} apresentaremos técnicas que lidam com diversos tipos de redundância.
+
 % subsection falhas_erros_e_defeitos (end)
+
+\subsection{Classificação de falhas de hardware} % (fold)
+\label{sub:classificacao}
+
+Transiente, permanente, intermitente.
+
+% subsection classificacao (end)
+
+
+\subsection{Redundância} % (fold)
+\label{sub:redundancia}
+
+% subsection redundancia (end)
 
 \subsection{Dependabilidade} % (fold)
 \label{sub:dependabilidade}
