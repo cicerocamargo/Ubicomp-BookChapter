@@ -25,22 +25,22 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean congue velit nec
 
 \section{Introdução} % (fold)
 
-A computação ubíqua anuncia uma nova era, a qual já estamos começando a vivenciar, onde diversos dispositivos computacionais são completamente integrados com o ambiente e usuários podem acessar seus dados e aplicações com diversos níveis de transparência. A sustentabilidade da computação pervasiva depende que a complexidade da infraestrutura de software e hardware esteja escondida do usuário final. Em um ambiente onde dispositivos de rede, computadores pessoais, sensores, entre outros dispositivos, devem integrados de forma transparente ao usuário, as falhas que podem ocorrer são exemplos de complexidades que devem ser abstraídas ou contornadas sempre que possível.
+A computação ubíqua anuncia uma nova era, a qual já estamos começando a vivenciar, onde diversos dispositivos estão computacionais são completamente integrados com o ambiente e interconectados de forma que os usuários podem acessar seus dados e aplicações com diversos níveis de transparência. A sustentabilidade da computação pervasiva depende que a complexidade da infraestrutura de software e hardware esteja escondida do usuário final. Em um ambiente onde dispositivos de rede, computadores pessoais, sensores, entre outros dispositivos, devem ser integrados de forma transparente ao usuário, as falhas que podem ocorrer são exemplos de complexidades que devem ser abstraídas ou contornadas sempre que possível.
 
-A tolerância a falhas é um tema ainda pouco abordado no âmbito dos sistemas ubíquos. Uma vez que tais sistemas devem residir no mesmo meio físico (e virtual) dos usuários, falhas podem ser irritantes e, até mesmo, uma ameaça a vidas humanas. Diversos pesquisadores da área argumentam que as técnicas atuais de tolerância a falhas devem ser repensadas para o contexto ubíquo. Em~\cite{Banavar2000} o autor reafirma a necessidade de proteger um sistema contra falhas para ser aplicado em casas inteligentes. Discussão semelhante é apresentada em~\cite{Bohn02} onde o autor expressa os requisitos de tolerância a falhas específicos de ambientes de monitoramento na área médica. % fix
+Tolerância a falhas é um tema ainda pouco abordado no âmbito dos sistemas ubíquos, porém é um tema primordial para que acomputação ubíqua ganhe espaço, pois uma vez que tais sistemas devem residir no mesmo meio físico (e virtual) dos usuários, falhas podem ser irritantes e, até mesmo, uma ameaça a vidas humanas. Diversos pesquisadores da área argumentam que as técnicas atuais de tolerância a falhas devem ser repensadas para o contexto ubíquo. Em~\cite{Banavar2000} o autor reafirma a necessidade de proteger um sistema contra falhas para ser aplicado em casas inteligentes. Discussão semelhante é apresentada em~\cite{Bohn02} onde o autor expressa os requisitos de tolerância a falhas específicos de ambientes de monitoramento na área médica. % fix
 
-A computação ubíqua tem encontrado uma aplicação direta na área médica~\cite{Bang03} e em ambientes inteligentes (\emph{smart spaces})~\cite{Kidd99}. Sensores são usados para monitorar pacientes em um hospital, identificar distúrbios da idade em idosos ou capturar o estado de instalações elétricas em cômodos inteligentes. Neste cenário de aplicação, falhas podem levar, até mesmo, a perda de vidas, logo tolerância a falhas é uma questão vital.
+A computação ubíqua tem encontrado uma aplicação direta na área médica\linebreak\cite{Bang03} e em espaços inteligentes (\emph{smart spaces})~\cite{Kidd99} onde sensores são usados para monitorar pacientes em um hospital, identificar distúrbios da idade em idosos ou capturar o estado de instalações elétricas em cômodos inteligentes. Neste cenário de aplicação, a ocorrência de falhas pode accaretar em sérias consequências, até mesmo em perda de vidas. Logo, tolerância a falhas é uma questão vital.
 
-As falhas no contexto de sistemas ubíquos também abrem novas situações com diferentes implicações. Por exemplo, falhas podem resultar em informações de contexto incorretas, levando a falhas de segurança, privacidade e acesso indevido de recursos. Logo, a contenção de falhas é um aspecto de grande importância para um sistema ubíquo em uso comercial.
+As falhas também abrem novas situações com diferentes implicações no contexto de sistemas ubíquos. Por exemplo, falhas podem resultar em informações de contexto incorretas, levando a falhas de segurança, privacidade e acesso indevido de recursos. Logo, a contenção de falhas é um aspecto de grande importância em um sistema ubíquo para uso comercial.
 
-O objetivo deste capítulo é apresentar os principais desafios relacionados a tolerância a falhas e assuntos afins dentro da computação ubíqua, bem como apresentar algumas soluções já propostas e ambientes ou ferramentas desenvolvidas em grupos de pesquisa que já empregam algumas destas soluções.
+O objetivo deste capítulo é apresentar os principais desafios relacionados a tolerância a falhas dentro da computação ubíqua, bem como apresentar diversas estratégias já propostas e, algumas, implementadas em ambientes e ferramentas de computação ubíqua desenvolvidas por grupos de pesquisa.
 
-Em ~\emph{``\nameref{sec:falhas_comp}''} serão introduzidos uma série de conceitos consolidados sobre tolerância a falhas na computação como um todo. \emph{``\nameref{sec:falhas_ubicomp}''} apresenta os principais desafios de tolerância a falhas encontrados pelos pesquisadores da área de computação ubíqua. \emph{``\nameref{sec:tolerancia}''} são comentados alguns avanços de pesquisa em direção a uma computação ubíqua tolerante a falhas. A Seção~\emph{``\nameref{sec:estudos}''} mostra o que tem sido aplicado de soluções práticas de tolerância a falhas em ferramentas e ambientes de computação ubíqua. Em \emph{``\nameref{sec:conclusoes}''} é discutido o estado atual desta subárea e os avanços críticos que devem surgir para que a área avance e mais soluções ubíquas apareçam no mercado em breve.
+Em ~\emph{``\nameref{sec:falhas_comp}''} serão introduzidos diversos conceitos consolidados sobre tolerância a falhas na computação como um todo. \emph{``\nameref{sec:falhas_ubicomp}''} apresenta os principais desafios de tolerância a falhas encontrados pelos pesquisadores da área de computação ubíqua em específico. Em \emph{``\nameref{sec:tolerancia}''} são apresentados alguns avanços de pesquisa em direção a uma computação ubíqua tolerante a falhas. A Seção~\emph{``\nameref{sec:estudos}''} mostra o que tem sido aplicado de soluções práticas de tolerância a falhas em ferramentas e ambientes de computação ubíqua. Em \emph{``\nameref{sec:conclusoes}''} é discutido o estado atual desta subárea e os avanços críticos em tolerância a falhas que, acredita-se, devam surgir para que a computação ubíqua avance como um todo e mais soluções apareçam no mercado, para o usuário final.
 
 % section introducao (end)
 
-\section{Conceitos básicos}
-\label{sec:falhas_ubicomp}
+\section{Tolerância a falhas na computação}
+\label{sec:falhas_comp}
 \input{falhas_comp.tex}
 
 \section{Falhas em Ambientes Ubíquos}
@@ -62,7 +62,7 @@ Em ~\emph{``\nameref{sec:falhas_comp}''} serão introduzidos uma série de conce
 \begin{center}
 	\textbf{Agradecimentos}
 \end{center}
-Aos irmãos Maurício e Laércio Pilla pelo contrabando de artigos :)
+Agradeço imensamente aos irmãos Pilla pelo contrabando de artigos :)
 	
 
 \bibliographystyle{sbc}

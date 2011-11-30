@@ -4,7 +4,7 @@ FILE   = main
 LATEX  = pdflatex
 BIBTEX = bibtex
 RM     = rm -f
-GV     = gv
+OPEN   = gnome-open
 
 # Gerar ps e PDF
 # Opcoes de pagina: a4, letter, ...
@@ -28,7 +28,7 @@ all:
 #	@$(LATEX) $(FILE)
 #	$(DVIPS) $(FILE) -o $(FILE).ps
 	$(RM) *.aux *.bbl *.blg *.dvi *.lof *.log *.lot *.toc *.tmp  *.*~ *~
-#	$(GV) $(FILE).ps
+	$(OPEN) $(FILE).pdf &
 
 clean:
 	$(RM) $(FILE).aux $(FILE).log $(FILE).out $(FILE).toc $(FILE).dvi $(FILE).lof $(FILE).bbl $(FILE).lot $(FILE).blg $(FILE).*~ $(FILE)~ *.tmp *.*~ *~
