@@ -30,32 +30,34 @@ Falhas de hardware podem ser também classificadas em \emph{benignas} e \emph{ma
 \subsection{Redundância} % (fold)
 \label{sub:redundancia}
 
-Praticamente todas as técnicas de tolerância a falhas envolvem algum tipo de redundância. Por redundância entende-se o fato de possuir mais de um componente (de software ou hardware) fornecendo a mesma funcionalidade. Em geral, as técnicas consistem em mecanismo de autogerenciamento dos componentes redundantes.
+Praticamente todas as técnicas de tolerância a falhas envolvem algum tipo de redundância. Por redundância entende-se o fato de existir mais de um componente (de software ou hardware) no sistema fornecendo a mesma funcionalidade. Em geral, as técnicas consistem em mecanismos de autogerenciamento dos componentes redundantes.
 
-Existem basicamente quatro tipos de redundâncias: redundância de hardware, software, informação e tempo. %fix
-Falhas de hardware geralmente são prevenidas com redundância de hardware, informação e tempo, enquanto falhas de software são prevenidas com redundância de software.
+Existem basicamente quatro tipos de redundâncias: redundância de \emph{hardware}, \emph{software}, \emph{informação} e \emph{tempo}. Falhas de hardware geralmente são prevenidas com redundância de hardware, informação e tempo, enquanto falhas de software são prevenidas com redundância de software.
 
-\emph{Redundância de hardware} em geral é obtida por peças de hardware extra que simplesmente detectam a falha de outro componente de hardware ou sobrescreve o efeito de sua falha. Esta redundância de hardware pode ser \emph{estática}, quando diversos componentes iguais, e.g. processadores, funcionam simultaneamente para realizar a mesma função, mascarando imediatamente uma falta, ou \emph{dinâmica}, quando um componente ``estepe'' é ativado quando outro falha, cada qual com seus prós e contras. Uma combinação destas duas técnicas é possível, resultando em uma \emph{Redundância híbrida de hardware}.
+\emph{Redundância de hardware} em geral é obtida por peças de hardware extra que simplesmente detectam a falha de outro componente de hardware ou sobrescreve o efeito de sua falha. Esta redundância de hardware pode ser \emph{estática}, quando diversos componentes iguais, e.g. processadores, funcionam simultaneamente para realizar a mesma função, mascarando imediatamente uma falta, ou \emph{dinâmica}, quando um componente ``estepe'' é ativado quando outro falha, cada qual com seus prós e contras. Uma combinação destas duas técnicas é possível, resultando em uma \emph{redundância híbrida de hardware}.
 % subsection redundancia (end)
+
+A técnica mais conhecida que envolve \emph{redundância de informação} é, sem dúvida, códigos de detecção e correção de erros. Nesta técnica, \emph{bits} extras são adicionados aos dados originais de forma que erros em uma transmissão de dados, por exemplo, possam ser detectados e, até mesmo, corrigidos. Códigos de detecção e correção de erros tem uma aplicação essencial na proteção das transmissão de dados por canais ruidosos seja em uma rede local ou na internet. Se o código adicional é capaz apenas de identificar e não corrigir erros, estes precisarão ser retransmitidos, resultando em uma \emph{redundância de tempo}. Ainda, se uma falha permanente de um link tornar um nó inalcançável, deve-se usar links redundantes, isto é, \emph{redundância de hardware}.
+
+Como a maioria das falhas de hardware são transientes, é improvável que uma re-execução da mesma computação no mesmo hardware irá ser acometida pela mesma falha. Assim, pode-se aplicar redundância de tempo pela simples re-execução da computação em questão. Redundância de tempo, em geral, não gera custos significativos em hardware e software, porém acarreta em uma grande perda de desempenho.
+
+\emph{Redundância de software} engloba técnicas para proteger o sistema principalmente de \emph{bugs} no software. Alcançar este nível pode ser custoso: uma técnica simples é ter duas ou mais versões das funções mais importantes do sistema (de preferência, implementadas por times diferentes) com a premissa de que é pouco provável que ambos os códigos irão gerar erros de execução para as mesmas entradas. As versões secundárias podem implementar algoritmos menos precisos e menos complexos (e, consequentemente, menos propensos a falhas) para produzirem resultados aceitáveis em caso de falha do primeiro. Assim como na redundância de hardware, as versões implementadas pode ser executadas paralelamente (necessitando, também, de hardware redundante) ou sequencialmente (necessitando tempo extra -- redundância de tempo) em caso de falha um dos módulos módulo de software
 
 \subsection{Dependabilidade} % (fold)
 \label{sub:dependabilidade}
 
-Atributos 
-Confiabilidade (reliability) 
-capacidade de atender a especificação, dentro de condições definidas, 
-durante certo período de funcionamento e condicionado a estar 
-operacional no início do período 
-Disponibilidade (availability) 
-probabilidade do sistema estar operacional num instante de tempo 
-determinado; alternância de períodos de funcionamento e reparo 
-Segurança (safety) 
-probabilidade do sistema ou estar operacional e executar sua função 
-corretamente ou descontinuar suas funções de forma a não provocar 
-dano a outros sistema ou pessoas que dele dependam 
-Segurança (security) 
-proteção contra falhas maliciosas, visando privacidade, autenticidade, 
-integridade e irrepudiabilidade dos dados
+O objetivo da tolerância a falhas e aumentar a dependabilidade dos sistemas. Este termo é uma tradução literal do termo original (\emph{dependability}) inglês, o qual indica um grau de qualidade do serviço fornecido por um sistema e o grau de confiança que os usuários tem em relação a um sistema.
 
+O conjunto de atributos que formam o conceito de dependabilidade são unidades que podem ser medidas em um sistema. Estes atributos são a confiabilidade, disponibilidade, segurança de funcionamento (\emph{safety}), segurança (security), mantenablidade, testabilidade e comprometimento com o desempenho. Com excessão deste último, os demais atributos estão sumarizaddos na tabela~\ref{tab:dependabilidade}.
+
+\begin{table*}
+\begin{center}
+\caption{Resumo dos atributos de dependabilidade.}\label{tab:dependabilidade}
+
+	\includegraphics[height=3in]{figuras/tabela_weber.pdf}
+
+\end{center}
+\end{table*}
 % subsection dependabilidade (end)
 
+Os conceitos apresentados ao longo dessa seção servem como base para compreendermos as técnicas de tolerância a falhas em computação ubíqua e as sutis variações que surgem quando da aplicação de técnicas básicas a ambientes móveis e ubíquos.
