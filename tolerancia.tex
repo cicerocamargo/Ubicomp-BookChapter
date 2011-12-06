@@ -5,32 +5,34 @@ A área de tolerância a falhas tem evoluído através de décadas de pesquisa n
 
 A identificação de falhas é uma tarefa árdua em sistemas ubíquos onde uma miríade de dispositivos pode estar conectada de forma complexas e escondidas do usuário. Por exemplo, para saber se um certo dispositivo parou, pode-se empregar alguma técnica de \emph{timeout} como \emph{heartbeat messages} (mensagens de ``batimento cardíaco''). Um dispositivo deve periodicamente enviar tais mensagens para o componente detector de falhas, de forma que este possa identificar quando um dispositivo pare de funcionar corretamente. Contudo, em um sistema com um grande número de dispositivos, \emph{heartbeat messages} podem adicionar significativos tráfego na rede e carga de trabalho no detector de falhas. Além disso, um dipositivo que se torna inalcançável na rede pode levar o detector de falhas a uma interpretação errônea, de que o dispositivo parou de funcionar corretamente.
 
-Falhas bizantinas, assim como em qualquer área da computação, são um problema maior ainda. Nesta classe de falhas, dispositivos que não param de funcionar (por exemplo, seguem enviando \emph{heartbeat messages} regularmente), mas começam a responder de forma errada as requisições. Em um sistema ubíquo, falhas bizantinas podem resultar em interpretação errada de informação contextual e uso inapropriado de recursos, por exemplo.
+Falhas bizantinas, assim como em qualquer área da computação, são um problema maior ainda. Mesmo os dispositivos que não param de funcionar podem, por exemplo, seguir enviando \emph{heartbeat messages} regularmente, mas responder de forma errada as requisições. Em um sistema ubíquo, falhas bizantinas podem resultar em inferência errada de informação contextual e uso inapropriado de recursos, como visto anteriormente.
 
-
+A contenção de falhas é um assunto que ganha importância em sistemas ubíquos, dado que estes podem ser compostos por uma vasta gama de dispositivos, os quais devem trocar informações com frequência, podendo rapidamente propagar um erro para o restante do sistema. Podemos considerar um espaço inteligente que se configura de acordo com os indivíduos que estão presentes: uma falha em um RFID pode levar a uma identificação errônea de um indivíduo, o que fará com que o ambiente se configure da maneira errada, por exemplo.
 
 % subsection identificação_de_falhas (end)
-
-\subsection{Mecanismos de Contenção} % (fold)
-\label{sub:mecanismos_de_contencao}
-
-% subsection mecanismos_de_contenção (end)
 
 \subsection{Contornando as Falhas} % (fold)
 \label{sub:contornando_as_falhas}
 
-\paragraph{redundância} % (fold)
-\label{par:redundancia}
+Como dissemos na Seção~\ref{sec:falhas_comp}, essencialmente, todos os mecanismos de tolerância a falhas envolvem a replicação de algum recurso, seja hardware, sotware, informação, e ainda temos a redundância temporal, onde o sistema fica armazenando seu estado de tempos em tempos para recuperar-se de alguma falha transiente. Discutiremos a seguir algumas destas técnicas de tolerância a falhas aplicadas a ambientes de computação ubíqua.
 
-Essencialmente, todos os mecanismos de tolerância a falhas envolvem a replicação de algum recurso.
+\paragraph{Reiniciar aplicações} % (fold)
 
-% paragraph redundância (end)
+Quando uma falha é detectada em um processo, a técnica mais simples vale também em um abiente ubíquo: reiniciar o processo. Para minimizar a computação e tornar a reexecução menos perceptível ao usuário, deve-se empregar redundância temporal, ou seja, o estado do processo é armazenado periodicamente e recuperado em caso de reinício por falha. Esta técnica é bastante útil e diversas aplicações a empregam em cenários ubíquos
 
-% subsection contornando_as_falhas (end)
+% paragraph reiniciar_aplicações (end)
+
+\paragraph{Dispositivo suplente} % (fold)
+
+Quando erros em uma determinada aplicação são gerados por falhas no hardware, esta aplicação deve ser escalonada em um dispositivo que forneça a mesma funcionalidade, ou funcionalidades mínimas necessárias para a aplicação. Caso o dispositivo suplente não suporte a execução da apliacação que falhou, outra aplicação que forneça funcionalidade semelhante pode ser ativada. Por exemplo, caso acabe a bateria do \emph{smartphone} do usuário e este estava tocando uma certa música, recuperada dos dados do usuário com acesso ubíquo, o sistema pode seguir tocando a mesma música em algum aparelho presente na peça, por exemplo, o \emph{laptop} do usuário. Questões de disponibilidade, privacidade e securança devem ser considerados neste caso.
+
+% paragraph dispositivo_suplente (end)
 
 \subsection{Notificando falhas} % (fold)
 \label{sub:notificando_falhas}
 
-Há situações em que uma falha não pode ser contornada sem intervenção de um usuário do sistema. Nestes casos o sistema deve prover um mecanismo de relatório de falhas ao usuário, de forma que este possa tomar a decisão cabida. Este mecanismo deve ser o menos intrusivo possível (...)
+Há situações em que uma falha não pode ser contornada sem intervenção de um usuário do sistema. Nestes casos o sistema deve prover um mecanismo de relatório de falhas ao usuário, de forma que este possa tomar a decisão cabida. Este mecanismo deve ser o menos intrusivo possível, ou seja, deve desviar o usuário o mínimo possível de sua real tarefa que, obviamente, não é consertar problemas no sistema. Falhas podem ser reportadas por displays, alto-falantes e qualquer outro meio perceptível pelo usuário. A maneira correta de reportar falhas em um sistema ubíquo pode depender da sua aplicação específica e ainda é um tema de pesquisa pouco explorado.
 
 % subsection notificando_falhas (end)
+
+\textbf{Falar de NoC e self-healing routers} (paper do ROBUST)

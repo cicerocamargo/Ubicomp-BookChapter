@@ -4,7 +4,7 @@ FILE   = main
 LATEX  = pdflatex
 BIBTEX = bibtex
 RM     = rm -f
-OPEN   = gnome-open
+OPEN   = open
 
 # Gerar ps e PDF
 # Opcoes de pagina: a4, letter, ...
