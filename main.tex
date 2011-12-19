@@ -5,6 +5,10 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 
+\hyphenpenalty=5000
+\tolerance=1000
+
+
 \title{Tolerância a Falhas na Computação Ubíqua}
 \author{Cícero Camargo}
 
@@ -17,15 +21,15 @@
 
 \begin{resumo}
 
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean congue velit nec eros rutrum feugiat. Mauris eget laoreet nibh. Nulla lacinia accumsan odio et aliquet. Donec sed sem nibh, quis bibendum velit. Phasellus leo magna, venenatis vel elementum ut, facilisis at diam. Etiam sit amet consequat eros. Aenean eget eros odio. Nulla et cursus augue. Morbi quis nibh elit. Praesent nec sodales lacus.
-	
+O conceito de computação ubíqua abre um leque de possíveis aplicações, nas quais diversos recursos computacionais estarão distribuídos e integrados no ambiente físico. Estas características da ubiquidade complicam ainda mais as questões relativas a tolerância a falhas. No entanto, diversas aplicações tem sido propostas nos moldes da computação ubíqua em cenários de aplicação onde falhas podem representar desde um entrave na usabilidade do sistema até um perigo para a vida humana, como em aplicações ubíquas para a área médica. A tolerância a falhas no contexto da computação ubíqua é uma área ainda recente e este trabalho tem como proposta revisar técnicas já consolidadas na academia, bem como o estado da arte na área.
 
 \end{resumo}
 
+\tableofcontents
+
 \section{Introdução} % (fold)
 
-A computação ubíqua anuncia uma nova era, a qual já estamos começando a vivenciar, onde diversos dispositivos estão computacionais são completamente integrados com o ambiente e interconectados de forma que os usuários podem acessar seus dados e aplicações com diversos níveis de transparência. A sustentabilidade da computação pervasiva depende que a complexidade da infraestrutura de software e hardware esteja escondida do usuário final. Em um ambiente onde dispositivos de rede, computadores pessoais, sensores, entre outros dispositivos, devem ser integrados de forma transparente ao usuário, as falhas que podem ocorrer são exemplos de complexidades que devem ser abstraídas ou contornadas sempre que possível.
+A computação ubíqua anuncia uma nova era, a qual já começamos a vivenciar, onde diversos dispositivos computacionais são completamente integrados com o ambiente e interconectados de forma que os usuários podem acessar seus dados e aplicações com diversos níveis de transparência. A sustentabilidade da computação pervasiva depende que a complexidade da infraestrutura de software e hardware esteja escondida do usuário final. Em um ambiente onde dispositivos de rede, computadores pessoais, sensores, entre outros dispositivos, devem ser integrados de forma transparente ao usuário, as falhas que podem ocorrer são exemplos de complexidades que devem ser abstraídas ou contornadas sempre que possível.
 
 Tolerância a falhas é um tema ainda pouco abordado no âmbito dos sistemas ubíquos, porém é um tema primordial para que acomputação ubíqua ganhe espaço, pois uma vez que tais sistemas devem residir no mesmo meio físico (e virtual) dos usuários, falhas podem ser irritantes e, até mesmo, uma ameaça a vidas humanas. Diversos pesquisadores da área argumentam que as técnicas atuais de tolerância a falhas devem ser repensadas para o contexto ubíquo. Em~\cite{Banavar2000} o autor reafirma a necessidade de proteger um sistema contra falhas para ser aplicado em casas inteligentes. Discussão semelhante é apresentada em~\cite{Bohn02} onde o autor expressa os requisitos de tolerância a falhas específicos de ambientes de monitoramento na área médica.
 
@@ -59,10 +63,10 @@ Em ~\emph{``\nameref{sec:falhas_comp}''} serão introduzidos diversos conceitos 
 \label{sec:conclusoes}
 \input{conclusoes.tex}
 
-\begin{center}
-	\textbf{Agradecimentos}
-\end{center}
-Agradeço imensamente aos irmãos Pilla pelo contrabando de artigos :)
+% \begin{center}
+% 	\textbf{Agradecimentos}
+% \end{center}
+% Gostaria de fazer um agradecimento especial aos irmãos Maurício e Laércio Lima Pilla, pelo contrabando de artigos.
 	
 
 \bibliographystyle{sbc}

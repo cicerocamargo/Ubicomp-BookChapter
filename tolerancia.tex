@@ -16,23 +16,39 @@ A contenção de falhas é um assunto que ganha importância em sistemas ubíquo
 
 Como dissemos na Seção~\ref{sec:falhas_comp}, essencialmente, todos os mecanismos de tolerância a falhas envolvem a replicação de algum recurso, seja hardware, sotware, informação, e ainda temos a redundância temporal, onde o sistema fica armazenando seu estado de tempos em tempos para recuperar-se de alguma falha transiente. Discutiremos a seguir algumas destas técnicas de tolerância a falhas aplicadas a ambientes de computação ubíqua.
 
-\paragraph{Reiniciar aplicações} % (fold)
+\subsubsection*{Reiniciar aplicações} % (fold)
 
 Quando uma falha é detectada em um processo, a técnica mais simples vale também em um abiente ubíquo: reiniciar o processo. Para minimizar a computação e tornar a reexecução menos perceptível ao usuário, deve-se empregar redundância temporal, ou seja, o estado do processo é armazenado periodicamente e recuperado em caso de reinício por falha. Esta técnica é bastante útil e diversas aplicações a empregam em cenários ubíquos
 
-% paragraph reiniciar_aplicações (end)
+% subsubsection* reiniciar_aplicações (end)
 
-\paragraph{Dispositivo suplente} % (fold)
+\subsubsection*{Dispositivo suplente} % (fold)
 
-Quando erros em uma determinada aplicação são gerados por falhas no hardware, esta aplicação deve ser escalonada em um dispositivo que forneça a mesma funcionalidade, ou funcionalidades mínimas necessárias para a aplicação. Caso o dispositivo suplente não suporte a execução da apliacação que falhou, outra aplicação que forneça funcionalidade semelhante pode ser ativada. Por exemplo, caso acabe a bateria do \emph{smartphone} do usuário e este estava tocando uma certa música, recuperada dos dados do usuário com acesso ubíquo, o sistema pode seguir tocando a mesma música em algum aparelho presente na peça, por exemplo, o \emph{laptop} do usuário. Questões de disponibilidade, privacidade e securança devem ser considerados neste caso.
+Quando erros em uma determinada aplicação são gerados por falhas no hardware, esta aplicação deve ser escalonada em um dispositivo que forneça a mesma funcionalidade, ou funcionalidades mínimas necessárias para a aplicação. Caso o dispositivo suplente não suporte a execução da apliacação que falhou, outra aplicação que forneça funcionalidade semelhante pode ser ativada. Por exemplo, caso acabe a bateria do \emph{smartphone} do usuário e este estava tocando uma certa música, recuperada dos dados do usuário com acesso ubíquo, o sistema pode seguir tocando a mesma música em algum aparelho presente na peça, por exemplo, o \emph{laptop} do usuário. Questões de disponibilidade, privacidade e segurança devem ser considerados neste caso.
 
-% paragraph dispositivo_suplente (end)
+% subsubsection* dispositivo_suplente (end)
 
-\subsection{Notificando falhas} % (fold)
-\label{sub:notificando_falhas}
+\subsubsection*{Mecanismos alternativos de notificaçãos} % (fold)
 
-Há situações em que uma falha não pode ser contornada sem intervenção de um usuário do sistema. Nestes casos o sistema deve prover um mecanismo de relatório de falhas ao usuário, de forma que este possa tomar a decisão cabida. Este mecanismo deve ser o menos intrusivo possível, ou seja, deve desviar o usuário o mínimo possível de sua real tarefa que, obviamente, não é consertar problemas no sistema. Falhas podem ser reportadas por displays, alto-falantes e qualquer outro meio perceptível pelo usuário. A maneira correta de reportar falhas em um sistema ubíquo pode depender da sua aplicação específica e ainda é um tema de pesquisa pouco explorado.
+Um ambiente ubíquo pode fonecer vários meios de entrega de informações para o usuário. Por exemplo, consideremos um ambiente médico que supervisiona pacientes e deve, automaticamente, tomar providências em caso de emergência. O sistema pode usar diversos canais de comunicação para acionar a equipe médica como uma chamada para um número de emergência ou para o telefone celular de um profissional, uma mensagem de texto via SMS, a ativação de um alarme sonoro ou visual em uma central médica, etc. Deve ser previsto um mecanismo de confimação de que a mensagem foi recebida em seu destino, para que, em caso de falha no recebimento da mensagem, o sistema possa acionar um canal de comunicação alternativo. A multiplicidade desses canais de comunicação é um recurso simples que aumenta significativamente a tolerância a falhas em um ambiente com este perfil.
+
+% subsubsection* mecanismos_de_notificação_alternativos (end)
+
+\subsubsection*{Correções na informação contextual} % (fold)
+
+Tanto a aquisição quanto o processamento de informações contextuais podem ser fontes de falhas complicadas de se corrigir. Novamente, a maneira mais eficaz de resolver erros de contexto é empregando redundância. Podemos, por exemplo, empregar vários sensores capturando informações na mesma fonte e usar um sistema de votação para decidir qual é a informação correta, o que soluciona até mesmo falhas bizantinas nos dispositivos de sensoriamento. De forma análoga, podemos empregar diversos algoritmos para realizar múltiplas inferências sobre as mesmas informações de contexto e ignorar alguma inferência errada. Contudo, dadas as técnicas desenvolvidas até o momento, a melhor maneira de detectar e corrigir erros em informação contextual ainda é permitir que o usuário corrija manualmente os erros que perceber, como no sistema apresentado em~\cite{dey2002distributed}. Esta estratégia, no entanto, requer o planejamento de uma interface com o usuário que seja a mais intuitiva e não intrusiva possível.
+
+% subsubsection* correções_na_informação_contextual (end)
+
+\subsubsection*{N versões} % (fold)
+
+A redundância de software é uma estratégia igualmente aplicável em ambientes ubíquos. Genericamente, em um sistema de software com \emph{n versões} cada módulo de software possui \emph{n} algoritmos diferentes implementados para realizar a mesma tarefa. A execução das \emph{n} versões pode ser sequencial ou paralela e seu resultado é enviado para outro módulo que vota na respota correta. Podemos estender um pouco o exemplo do parágrafo anterior, quando falamos em redundância nos módulos de inferência de contexto, para um ambiente de monitoramento médico. Podemos ter diferentes dispositivos de sensoriamento captando diferentes informações do paciente, por exemplo, câmeras, microfones, sensores fixados no corpo do indivíduo, e diferentes módulos inferindo o estado do paciente a partir destas informações. Novamente temos a necessidade de um módulo para receber estas \emph{n} informações de estado e decidir qual é o real estado do paciente, requerendo outra camada de inferência sobre as informações já inferidas.
+
+% subsubsection* n_versões (end)
+
+\subsection{Reportando falhas} % (fold)
+\label{sub:reportando_falhas}
+
+Há situações em que uma falha não pode ser contornada sem intervenção de um usuário do sistema. Nestes casos o sistema deve prover um mecanismo de relatório de falhas ao usuário, de forma que este possa tomar a decisão cabida. Este mecanismo deve ser o menos intrusivo possível, ou seja, deve desviar o usuário o mínimo possível de sua real tarefa. Falhas podem ser reportadas por diversos dispositivos como displays, alto-falantes e outro meios perceptíveis pelo usuário. Caso o indivíduo use apenas um pequeno conjunto de dispositivos, o mecanismo de relatório de falhas deve restringir-se a estes dispositivos no momento de reportar estas falhas. Contudo esse pequeno conjunto de dispositivos pode depender de diversos outros, gerando um grafo de dependência onde cada dispositivo ou serviço deste grafo pode também falhar. Falhas em certas entidades deste grafo podem não ser de responsabilidade do usuário, o que deve ser considerado quando da notificação de falhas a este. Determinar este grafo e como manipulá-lo é um importante desafio de pesquisa.
 
 % subsection notificando_falhas (end)
-
-\textbf{Falar de NoC e self-healing routers} (paper do ROBUST)
