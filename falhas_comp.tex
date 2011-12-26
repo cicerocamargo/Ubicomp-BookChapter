@@ -4,6 +4,8 @@ Os computadores (hardware + software) são, provavelmente, os sistemas mais comp
 
 É notável o crescimento em confiabilidade na área de hardware, onde vimos uma grande cultura de tolerância a falhas se formar, desde o tempo dos inseguros \emph{mainframes} a vávula, cujos proprietários sofriam rotineiramente com falhas de diversas origens, até os robustos \emph{laptops} e \emph{smartphones} que temos hoje para computação pessoal. Na área de software, por outro lado, os processos de desenvolvimento e os produtos estão cada vez mais complexos e apresentando cada vez mais \emph{bugs}. Uma vez que esses \emph{bugs} são quase inevitáveis, mecanismos de tolerância a falhas se tornam obrigatórios em sistemas onde a confiabilidade e disponibilidade é imprescindível.
 
+Os conceitos apresentados ao longo dessa seção servem como base para melhor compreendermos as técnicas básicas de tolerância a falhas e as sutis variações dos problemas e soluções que aparecem neste sentido em ambiente de computação ubíqua.
+
 \subsection{Falhas, erros e defeitos} % (fold)
 \label{sub:falhas_erros_e_defeitos}
 
@@ -43,9 +45,9 @@ Como a maioria das falhas de hardware são transientes, é improvável que uma r
 \subsection{Dependabilidade} % (fold)
 \label{sub:dependabilidade}
 
-O objetivo da tolerância a falhas é aumentar a dependabilidade dos sistemas. Este termo é uma tradução literal do termo original (\emph{dependability}) inglês, o qual indica um grau de qualidade do serviço fornecido por um sistema e o grau de confiança que os usuários tem em relação a um sistema.
+O objetivo da tolerância a falhas é aumentar a dependabilidade dos sistemas. Este termo é uma tradução literal do termo original em inglês, \emph{dependability}, o qual indica um grau de qualidade do serviço fornecido por um sistema qualquer e o grau de confiança que os usuários possuem nesse sistema.
 
-O conjunto de atributos que formam o conceito de dependabilidade são unidades que podem ser medidas em um sistema. Estes atributos são a confiabilidade, disponibilidade, segurança de funcionamento (\emph{safety}), segurança (security), mantenablidade, testabilidade e comprometimento com o desempenho. Com excessão deste último, os demais atributos estão sumarizaddos na tabela~\ref{tab:dependabilidade}.
+O conjunto de atributos que formam o conceito de dependabilidade são unidades que podem ser medidas em um sistema. Estes atributos são confiabilidade, disponibilidade, segurança de funcionamento (\emph{safety}), segurança de acesso (\emph{security}), mantenablidade, testabilidade e comprometimento com o desempenho. Com excessão deste último, os demais atributos estão sumarizaddos na tabela~\ref{tab:dependabilidade}.
 
 \begin{table*}
 \begin{center}
@@ -56,5 +58,3 @@ O conjunto de atributos que formam o conceito de dependabilidade são unidades q
 \end{center}
 \end{table*}
 % subsection dependabilidade (end)
-
-Os conceitos apresentados ao longo dessa seção servem como base para compreendermos as técnicas de tolerância a falhas em computação ubíqua e as sutis variações que surgem quando da aplicação de técnicas básicas a ambientes móveis e ubíquos.
