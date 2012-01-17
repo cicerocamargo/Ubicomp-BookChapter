@@ -12,20 +12,20 @@ Um sistema ubíquo geralmente é composto por uma variada gama de dispositivos: 
 \subsection{falhas nas aplicações} % (fold)
 \label{sub:falhas_nas_aplicacoes}
 
-Desenvolver software confiável é, sabidamente, um processo bastante formal e custoso, mas, ainda assim, propenso a falhas. As estapas de teste, verificação e validação chegam a representar metade do custo total do software~\cite{hailpern2002software}. Na verdade, sistemas ubíquos podem ser compostos por aplicações de prateleira que não passaram por um processo de desenvolvimento rigoroso e, embora funcionem bem sozinhas, não interoperam corretamente com outros componentes do sistema. Aplicações podem falhar por diversos motivos como bugs de programação, excessões não capturadas, erros no sistema operacional e até mal uso. Sistemas ubíquos podem também ser alvo de ataques com vírus e \emph{worms}, podendo resultar em falhas \emph{bizantinas} ou interrupção do serviço de um dispositivo
+Desenvolver software confiável é, sabidamente, um processo bastante formal e custoso, mas, ainda assim, propenso a falhas. As etapas de teste, verificação e validação chegam a representar metade do custo total do software~\cite{hailpern2002software}. Na verdade, sistemas ubíquos podem ser compostos por aplicações de prateleira que não passaram por um processo de desenvolvimento rigoroso e, embora funcionem bem sozinhas, não interoperam corretamente com outros componentes do sistema. Aplicações podem falhar por diversos motivos como bugs de programação, excessões não capturadas, erros no sistema operacional e até mal uso. Sistemas ubíquos podem também ser alvo de ataques com vírus e \emph{worms}, podendo resultar em falhas \emph{bizantinas} ou interrupção no serviço de um dispositivo
 
 % subsection falhas_nas_aplicações (end)
 
 \subsection{falhas na rede} % (fold)
 \label{sub:falhas_na_rede}
 
-A espinha dorsal de um sistema ubíquo é a rede de comunicação. Dispositivos estão interconectados com ou sem fio, e sistemas ubíquos devem munir-se contra falhas na rede causadas por fraqueza do sinal, dispositivos que saem da área de cobertura e tornam-se inalcançáveis, congestionamento devido ao alto tráfico de dados na rede, etc., situações estas que devem ser encaradas como normais de um sistema móvel. Um problema maior ocorre quando uma falha de rede (como um dispositivo que se torna inalcançável) é percebida como uma falha de dispositivo. A identificação automática do tipo de falha é uma questão importante nos sistemas ubíquos.
+A espinha dorsal de um sistema ubíquo é a rede de comunicação. Dispositivos estão interconectados com ou sem fio, e sistemas ubíquos devem munir-se contra falhas na rede causadas por fraqueza do sinal, por dispositivos que saem da área de cobertura e tornam-se inalcançáveis, por congestionamento (devido ao alto tráfico de dados na rede), etc., situações estas que devem ser encaradas como normais de um sistema móvel. Um problema maior ocorre quando uma falha de rede (como um dispositivo que se torna inalcançável) é percebida como uma falha de dispositivo. A identificação automática do tipo de falha é uma questão importante nos sistemas ubíquos.
 
 % subsection falhas_na_rede (end)
 
 \subsection{falhas nos serviços} % (fold)
 \label{sub:falhas_nos_servicos}
-O sistema ubíquo oferece aos seus usuários um conjunto de serviços, os quais podem ser vistos em duas categorias: serviços básicos e adicionais. Dentre os serviços básicos que um sistema ubíquo deve fornecer estão serviços de descoberta, de nomes e de eventos. Alguns sistemas devem fornecer como básicos serviços de contexto, para aquisição e interpretação de informações contextuais no sistema, e sistemas de arquivos distribuídos, para permitir o acesso ubíquo aos dados. Falhas nos serviços podem ocorrer por \emph{bugs}, erros de sistema operacional, e incluir problemas como sensoriamento/interpretação errada de contexto e perda de eventos. Falhas nos serviços podem fazer com que o sistema ubíquo inteiro pare de funcionar.
+O sistema ubíquo oferece aos seus usuários um conjunto de serviços, os quais podem ser vistos em duas categorias: serviços básicos e adicionais. Dentre os serviços básicos que um sistema ubíquo deve fornecer estão serviços de descoberta, de nomes e de eventos. Alguns sistemas devem fornecer como serviços básicos os serviços de contexto, para aquisição e interpretação de informações contextuais no sistema, e sistemas de arquivos distribuídos, para permitir o acesso ubíquo aos dados. Falhas nos serviços podem ocorrer por \emph{bugs}, erros de sistema operacional, e incluir problemas como sensoriamento/interpretação errada de contexto e perda de eventos. Falhas nos serviços podem fazer com que o sistema ubíquo inteiro pare de funcionar.
 
 % subsection falhas_nos_serviços (end)
 
@@ -40,7 +40,7 @@ Consideremos uma casa inteligente~\cite{Kidd99} onde, assim que o morador entra,
 
 \subsubsection*{Risco de morte}
 
-Sistemas ubíquos para a área médica formam é área de aplicação da computação ubíqua onde falhas podem ser catastróficas. Basicamente, espera-se que tais sistemas monitorem pacientes, identifiquem problemas e solicitem assistência médica automaticamente. Falhas em sensores de monitoramento ou no sistema de notificação, por exemplo, podem resultar em danos severos à saúde do paciente. A vida de pacientes depende fortemente destes sistemas, logo estes devem ser altamente dependáveis.
+Sistemas ubíquos para a área médica formam é área de aplicação da computação ubíqua onde falhas podem ser catastróficas. Basicamente, espera-se que tais sistemas monitorem pacientes, identifiquem problemas e solicitem assistência médica automaticamente. Falhas em sensores de monitoramento ou no sistema de notificação, por exemplo, podem resultar em danos severos à saúde do paciente. A vida de pacientes depende fortemente destes sistemas, logo estes devem possuir alta dependabilidade.
 
 \subsubsection*{Prejuízos e quebras de segurança}
 
